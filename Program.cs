@@ -7,5 +7,9 @@ int b;
 a = 10;
 b = a;
 
+string mensaje = "Hola mundo!";
+
+
 Console.WriteLine("valor de a: "+a);
-Console.WriteLine("valor de b: "+b);
+Console.WriteLine("valor de b: " + b);
+Console.WriteLine(mensaje);
