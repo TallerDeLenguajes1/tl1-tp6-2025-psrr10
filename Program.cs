@@ -17,7 +17,8 @@ class Program
             Console.WriteLine("6 - Cuadrado");
             Console.WriteLine("7 - Raíz cuadrada");
             Console.WriteLine("8 - Seno");
-            Console.WriteLine("9 - Coseno"); // ✅ Nueva opción
+            Console.WriteLine("9 - Coseno");
+            Console.WriteLine("10 - Parte entera"); // ✅ Nueva opción
             Console.Write("Seleccione una opción: ");
             string? opcion = Console.ReadLine();
 
@@ -87,7 +88,7 @@ class Program
                 resultado = Math.Sin(radianes);
                 Console.WriteLine($"El seno de {grados}° es: {resultado}");
             }
-            else if (opcion == "9") // ✅ Coseno
+            else if (opcion == "9") // Coseno
             {
                 Console.Write("Ingrese un ángulo en grados: ");
                 bool valido = double.TryParse(Console.ReadLine(), out double grados);
@@ -101,6 +102,20 @@ class Program
                 double radianes = grados * Math.PI / 180;
                 resultado = Math.Cos(radianes);
                 Console.WriteLine($"El coseno de {grados}° es: {resultado}");
+            }
+            else if (opcion == "10") // ✅ Parte entera
+            {
+                Console.Write("Ingrese un número decimal: ");
+                bool valido = double.TryParse(Console.ReadLine(), out double num);
+
+                if (!valido)
+                {
+                    Console.WriteLine("⚠️ Ingresó un valor inválido.");
+                    continue;
+                }
+
+                resultado = Math.Truncate(num);
+                Console.WriteLine($"La parte entera de {num} es: {resultado}");
             }
             else
             {
