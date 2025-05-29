@@ -15,6 +15,7 @@ class Program
             Console.WriteLine("4 - Dividir");
             Console.WriteLine("5 - Valor absoluto");
             Console.WriteLine("6 - Cuadrado");
+            Console.WriteLine("7 - Raíz cuadrada"); // ✅ Nueva opción
             Console.Write("Seleccione una opción: ");
             string? opcion = Console.ReadLine();
 
@@ -48,6 +49,26 @@ class Program
 
                 resultado = Math.Pow(num, 2);
                 Console.WriteLine($"El cuadrado de {num} es: {resultado}");
+            }
+            else if (opcion == "7") // ✅ Raíz cuadrada
+            {
+                Console.Write("Ingrese un número: ");
+                bool valido = double.TryParse(Console.ReadLine(), out double num);
+
+                if (!valido)
+                {
+                    Console.WriteLine("⚠️ Ingresó un valor inválido.");
+                    continue;
+                }
+
+                if (num < 0)
+                {
+                    Console.WriteLine("⚠️ No se puede calcular la raíz cuadrada de un número negativo.");
+                    continue;
+                }
+
+                resultado = Math.Sqrt(num);
+                Console.WriteLine($"La raíz cuadrada de {num} es: {resultado}");
             }
             else
             {
