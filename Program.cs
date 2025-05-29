@@ -15,7 +15,8 @@ class Program
             Console.WriteLine("4 - Dividir");
             Console.WriteLine("5 - Valor absoluto");
             Console.WriteLine("6 - Cuadrado");
-            Console.WriteLine("7 - Raíz cuadrada"); // ✅ Nueva opción
+            Console.WriteLine("7 - Raíz cuadrada");
+            Console.WriteLine("8 - Seno"); // ✅ Nueva opción
             Console.Write("Seleccione una opción: ");
             string? opcion = Console.ReadLine();
 
@@ -50,7 +51,7 @@ class Program
                 resultado = Math.Pow(num, 2);
                 Console.WriteLine($"El cuadrado de {num} es: {resultado}");
             }
-            else if (opcion == "7") // ✅ Raíz cuadrada
+            else if (opcion == "7") // Raíz cuadrada
             {
                 Console.Write("Ingrese un número: ");
                 bool valido = double.TryParse(Console.ReadLine(), out double num);
@@ -69,6 +70,21 @@ class Program
 
                 resultado = Math.Sqrt(num);
                 Console.WriteLine($"La raíz cuadrada de {num} es: {resultado}");
+            }
+            else if (opcion == "8") // ✅ Seno
+            {
+                Console.Write("Ingrese un ángulo en grados: ");
+                bool valido = double.TryParse(Console.ReadLine(), out double grados);
+
+                if (!valido)
+                {
+                    Console.WriteLine("⚠️ Ingresó un valor inválido.");
+                    continue;
+                }
+
+                double radianes = grados * Math.PI / 180;
+                resultado = Math.Sin(radianes);
+                Console.WriteLine($"El seno de {grados}° es: {resultado}");
             }
             else
             {
