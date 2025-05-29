@@ -18,7 +18,9 @@ class Program
             Console.WriteLine("7 - Raíz cuadrada");
             Console.WriteLine("8 - Seno");
             Console.WriteLine("9 - Coseno");
-            Console.WriteLine("10 - Parte entera"); // ✅ Nueva opción
+            Console.WriteLine("10 - Parte entera");
+            Console.WriteLine("11 - Máximo entre dos números"); 
+            Console.WriteLine("12 - Mínimo entre dos números"); 
             Console.Write("Seleccione una opción: ");
             string? opcion = Console.ReadLine();
 
@@ -103,7 +105,7 @@ class Program
                 resultado = Math.Cos(radianes);
                 Console.WriteLine($"El coseno de {grados}° es: {resultado}");
             }
-            else if (opcion == "10") // ✅ Parte entera
+            else if (opcion == "10") // Parte entera
             {
                 Console.Write("Ingrese un número decimal: ");
                 bool valido = double.TryParse(Console.ReadLine(), out double num);
@@ -116,6 +118,30 @@ class Program
 
                 resultado = Math.Truncate(num);
                 Console.WriteLine($"La parte entera de {num} es: {resultado}");
+            }
+            else if (opcion == "11" || opcion == "12") // ✅ Máximo o Mínimo
+            {
+                Console.Write("Ingrese el primer número: ");
+                bool valido1 = double.TryParse(Console.ReadLine(), out double num1);
+                Console.Write("Ingrese el segundo número: ");
+                bool valido2 = double.TryParse(Console.ReadLine(), out double num2);
+
+                if (!valido1 || !valido2)
+                {
+                    Console.WriteLine("⚠️ Ingresó un valor inválido.");
+                    continue;
+                }
+
+                if (opcion == "11")
+                {
+                    resultado = Math.Max(num1, num2);
+                    Console.WriteLine($"El máximo entre {num1} y {num2} es: {resultado}");
+                }
+                else
+                {
+                    resultado = Math.Min(num1, num2);
+                    Console.WriteLine($"El mínimo entre {num1} y {num2} es: {resultado}");
+                }
             }
             else
             {
