@@ -14,13 +14,14 @@ class Program
             Console.WriteLine("3 - Multiplicar");
             Console.WriteLine("4 - Dividir");
             Console.WriteLine("5 - Valor absoluto");
+            Console.WriteLine("6 - Cuadrado");
             Console.Write("Seleccione una opción: ");
             string? opcion = Console.ReadLine();
 
             double resultado = 0;
             bool operacionValida = true;
 
-            if (opcion == "5") // valor absoluto
+            if (opcion == "5") // Valor absoluto
             {
                 Console.Write("Ingrese un número: ");
                 bool valido = double.TryParse(Console.ReadLine(), out double num);
@@ -33,6 +34,20 @@ class Program
 
                 resultado = Math.Abs(num);
                 Console.WriteLine($"Valor absoluto de {num} es: {resultado}");
+            }
+            else if (opcion == "6") // Cuadrado
+            {
+                Console.Write("Ingrese un número: ");
+                bool valido = double.TryParse(Console.ReadLine(), out double num);
+
+                if (!valido)
+                {
+                    Console.WriteLine("⚠️ Ingresó un valor inválido.");
+                    continue;
+                }
+
+                resultado = Math.Pow(num, 2);
+                Console.WriteLine($"El cuadrado de {num} es: {resultado}");
             }
             else
             {
