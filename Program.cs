@@ -40,6 +40,38 @@ class Program
             int numeroInvertido = InvertirNumero(numero);
             Console.WriteLine($"El número invertido es: {numeroInvertido}");
         }
+
+
+
+        //EJERCICIO 4
+        Console.WriteLine("Ingrese una cadena de texto: ");
+        string? texto = Console.ReadLine();
+        if (string.IsNullOrEmpty(texto))
+        {
+            Console.WriteLine("No ingresó ninguna cadena");
+            return;
+        }
+
+        int longitud = texto.Length;
+        Console.WriteLine($"La longitud de la cadena es: {longitud}");
+
+        Console.WriteLine("Ingrese otra cadena: ");
+        string? texto2 = Console.ReadLine();
+        if (string.IsNullOrEmpty(texto2))
+        {
+            Console.WriteLine("No ingresó ninguna cadena");
+            return;
+        }
+
+        Console.WriteLine($"{texto} {texto2}");
+
+
+
+
+
+
+
+
     }
 
     // FUNCIÓN
