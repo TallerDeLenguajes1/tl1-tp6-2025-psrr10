@@ -41,9 +41,7 @@ class Program
             Console.WriteLine($"El número invertido es: {numeroInvertido}");
         }
 
-
-
-        //EJERCICIO 4
+        // EJERCICIO 4
         Console.WriteLine("Ingrese una cadena de texto: ");
         string? texto = Console.ReadLine();
         if (string.IsNullOrEmpty(texto))
@@ -88,15 +86,29 @@ class Program
             Console.WriteLine($"Subcadena extraída: {subcadena}");
         }
 
+        // EJERCICIO 5: Buscar ocurrencia de una palabra en la cadena
+        Console.Write("Ingrese la palabra que desea buscar en el primer texto: ");
+        string? palabraBuscar = Console.ReadLine();
 
+        if (!string.IsNullOrEmpty(palabraBuscar))
+        {
+            string[] palabras = texto.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            int contador = 0;
 
+            foreach (string palabra in palabras)
+            {
+                if (palabra.Equals(palabraBuscar, StringComparison.OrdinalIgnoreCase))
+                {
+                    contador++;
+                }
+            }
 
-
-
-
-
-
-
+            Console.WriteLine($"La palabra \"{palabraBuscar}\" aparece {contador} veces en la cadena.");
+        }
+        else
+        {
+            Console.WriteLine("No ingresó una palabra válida para buscar.");
+        }
     }
 
     // FUNCIÓN
