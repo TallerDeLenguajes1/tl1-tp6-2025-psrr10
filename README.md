@@ -39,3 +39,39 @@ string nombre = "Juan";
 string saludo = $"Hola, {nombre}!";
 Console.WriteLine(saludo);
 Salida -> Hola, Juan!
+
+
+
+PREGUNTAS EJERCICIO 5
+¿Qué son las expresiones regulares?
+
+Las expresiones regulares son patrones usados para buscar, validar, extraer o manipular texto basándose en reglas definidas por esos patrones. Son como un lenguaje pequeño y específico para describir conjuntos de cadenas.
+
+Por ejemplo, una expresión regular puede servir para:
+
+    Verificar si un texto es un correo electrónico válido.
+
+    Extraer todos los números de un texto.
+
+    Reemplazar todas las apariciones de una palabra en un texto.
+
+¿Funcionan únicamente en C#?
+
+No, las expresiones regulares no son exclusivas de C#.
+
+    Son una herramienta muy común en la mayoría de los lenguajes de programación modernos.
+
+    Por ejemplo: Python, JavaScript, Java, PHP, Ruby, Perl, C++, etc., tienen soporte para expresiones regulares, aunque la sintaxis puede variar ligeramente entre lenguajes.
+
+    En C#, las expresiones regulares se usan a través de la clase Regex que está en el espacio de nombres System.Text.RegularExpressions.
+
+¿En qué casos le parecen útiles? (3 ejemplos)
+
+    Validación de datos:
+    Verificar si un número telefónico, email, código postal o DNI ingresado tiene el formato correcto.
+
+    Búsqueda y extracción de información:
+    Extraer todas las direcciones de correo, URLs o números de teléfono de un texto largo o documento.
+
+    Transformación y limpieza de texto:
+    Reemplazar formatos incorrectos, eliminar caracteres no deseados, formatear fechas o extraer partes específicas de un texto.

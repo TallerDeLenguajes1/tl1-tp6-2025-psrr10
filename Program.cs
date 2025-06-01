@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        ValidarEmail.VerificarEmail();
+        ValidarUrl.VerificarUrl();
+
         Saludar();
 
         InvertirNumeroEjercicio();
