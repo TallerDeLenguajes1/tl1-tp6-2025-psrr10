@@ -59,6 +59,11 @@ class Program
             Console.WriteLine(c);
         }
 
+        string mayusculas = texto.ToUpper();
+        Console.WriteLine($"En mayusculas: {mayusculas}");
+        string minusculas = texto.ToLower();
+        Console.WriteLine($"En minusculas {minusculas}");
+
         Console.WriteLine("Ingrese otra cadena: ");
         string? texto2 = Console.ReadLine();
         if (string.IsNullOrEmpty(texto2))
