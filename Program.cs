@@ -63,7 +63,25 @@ class Program
             return;
         }
 
-        Console.WriteLine($"{texto} {texto2}");
+        Console.WriteLine($"Concatenación: {texto} {texto2}");
+
+        // Subcadena
+        Console.Write("Ingrese la posición de inicio para extraer subcadena (0 a " + (texto.Length - 1) + "): ");
+        bool okInicio = int.TryParse(Console.ReadLine(), out int inicio);
+
+        Console.Write("Ingrese la cantidad de caracteres a extraer: ");
+        bool okCantidad = int.TryParse(Console.ReadLine(), out int cantidad);
+
+        if (!okInicio || !okCantidad || inicio < 0 || cantidad < 0 || inicio + cantidad > texto.Length)
+        {
+            Console.WriteLine("Los valores ingresados no son válidos para extraer subcadena.");
+        }
+        else
+        {
+            string subcadena = texto.Substring(inicio, cantidad);
+            Console.WriteLine($"Subcadena extraída: {subcadena}");
+        }
+
 
 
 
