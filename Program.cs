@@ -21,6 +21,7 @@ class Program
             Console.WriteLine("10 - Parte entera");
             Console.WriteLine("11 - Máximo entre dos números"); 
             Console.WriteLine("12 - Mínimo entre dos números"); 
+            Console.WriteLine("13 - Resolver ecuación simple (ej: 1+1, 1-1, 1*1, 1/1)");
             Console.Write("Seleccione una opción: ");
             string? opcion = Console.ReadLine();
 
@@ -143,6 +144,10 @@ class Program
                     Console.WriteLine($"El mínimo entre {num1} y {num2} es: {resultado}");
                 }
             }
+            else if (opcion == "13") // Resolver ecuación simple
+            {
+                ResolverEcuacionSimple();
+            }
             else
             {
                 Console.Write("Ingrese el primer número: ");
@@ -160,15 +165,15 @@ class Program
                 {
                     case "1":
                         resultado = num1 + num2;
-                        Console.WriteLine($"La suma de {num1} y de {num2} es igual a: {resultado.ToString()}");
+                        Console.WriteLine($"La suma de {num1} y de {num2} es igual a: {resultado}");
                         break;
                     case "2":
                         resultado = num1 - num2;
-                        Console.WriteLine($"La resta de {num1} y de {num2} es igual a: {resultado.ToString()}");
+                        Console.WriteLine($"La resta de {num1} y de {num2} es igual a: {resultado}");
                         break;
                     case "3":
                         resultado = num1 * num2;
-                        Console.WriteLine($"La multiplicación de {num1} y de {num2} es igual a: {resultado.ToString()}");
+                        Console.WriteLine($"La multiplicación de {num1} y de {num2} es igual a: {resultado}");
                         break;
                     case "4":
                         if (num2 == 0)
@@ -179,7 +184,7 @@ class Program
                         else
                         {
                             resultado = num1 / num2;
-                            Console.WriteLine($"La división de {num1} y de {num2} es igual a: {resultado.ToString()}");
+                            Console.WriteLine($"La división de {num1} y de {num2} es igual a: {resultado}");
                         }
                         break;
                     default:
@@ -195,5 +200,83 @@ class Program
         }
 
         Console.WriteLine("👋 Programa finalizado.");
+    }
+
+    static void ResolverEcuacionSimple()
+    {
+        Console.Write("Ingrese una ecuación simple (suma, resta, multiplicacion o division): ");
+        string? ecuacion = Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(ecuacion))
+        {
+            Console.WriteLine("No ingresó ninguna ecuación.");
+            return;
+        }
+
+        // Buscar operador en la cadena:
+        char[] operadores = { '+', '-', '*', '/' };
+        char operadorEncontrado = '\0';
+        int posOperador = -1;
+
+        foreach (char op in operadores)
+        {
+            posOperador = ecuacion.IndexOf(op);
+            if (posOperador > 0) // operador no puede estar en primera posición
+            {
+                operadorEncontrado = op;
+                break;
+            }
+        }
+
+        if (operadorEncontrado == '\0')
+        {
+            Console.WriteLine("No se encontró un operador válido en la ecuación.");
+            return;
+        }
+
+        // Separar números:
+        string parte1 = ecuacion.Substring(0, posOperador);
+        string parte2 = ecuacion.Substring(posOperador + 1);
+
+        bool esNum1 = double.TryParse(parte1, out double num1);
+        bool esNum2 = double.TryParse(parte2, out double num2);
+
+        if (!esNum1 || !esNum2)
+        {
+            Console.WriteLine("La ecuación contiene valores no numéricos.");
+            return;
+        }
+
+        double resultado = 0;
+        bool valido = true;
+
+        switch (operadorEncontrado)
+        {
+            case '+':
+                resultado = num1 + num2;
+                break;
+            case '-':
+                resultado = num1 - num2;
+                break;
+            case '*':
+                resultado = num1 * num2;
+                break;
+            case '/':
+                if (num2 == 0)
+                {
+                    Console.WriteLine("No se puede dividir por cero.");
+                    valido = false;
+                }
+                else
+                {
+                    resultado = num1 / num2;
+                }
+                break;
+        }
+
+        if (valido)
+        {
+            Console.WriteLine($"Resultado de {ecuacion} = {resultado}");
+        }
     }
 }
