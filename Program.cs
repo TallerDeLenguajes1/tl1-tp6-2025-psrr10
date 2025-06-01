@@ -4,12 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
+        Saludar();
+
+        InvertirNumeroEjercicio();
+
+        OperarConCadenas();
+
+        BuscarPalabraEnCadena();
+
+        DividirCadenaPorSeparador();
+    }
+
+    static void Saludar()
+    {
         Console.WriteLine("Hello, World!");
 
-        int a;
-        int b;
-        a = 10;
-        b = a;
+        int a = 10;
+        int b = a;
 
         string mensaje = "Hola mundo!";
         string nombre = "Lionel Messi";
@@ -20,8 +31,10 @@ class Program
 
         string mensaje2 = $"{mensaje}{nombre}!";
         Console.WriteLine(mensaje2);
+    }
 
-        // EJERCICIO 1: Invertir un número
+    static void InvertirNumeroEjercicio()
+    {
         Console.Write("Ingrese un número: ");
         string? entrada = Console.ReadLine();
 
@@ -40,10 +53,25 @@ class Program
             int numeroInvertido = InvertirNumero(numero);
             Console.WriteLine($"El número invertido es: {numeroInvertido}");
         }
+    }
 
-        // EJERCICIO 4
+    static int InvertirNumero(int num)
+    {
+        int invertido = 0;
+        while (num > 0)
+        {
+            int digito = num % 10;
+            invertido = invertido * 10 + digito;
+            num /= 10;
+        }
+        return invertido;
+    }
+
+    static void OperarConCadenas()
+    {
         Console.WriteLine("Ingrese una cadena de texto: ");
         string? texto = Console.ReadLine();
+
         if (string.IsNullOrEmpty(texto))
         {
             Console.WriteLine("No ingresó ninguna cadena");
@@ -61,8 +89,9 @@ class Program
 
         string mayusculas = texto.ToUpper();
         Console.WriteLine($"En mayusculas: {mayusculas}");
+
         string minusculas = texto.ToLower();
-        Console.WriteLine($"En minusculas {minusculas}");
+        Console.WriteLine($"En minusculas: {minusculas}");
 
         Console.WriteLine("Ingrese otra cadena: ");
         string? texto2 = Console.ReadLine();
@@ -90,13 +119,26 @@ class Program
             string subcadena = texto.Substring(inicio, cantidad);
             Console.WriteLine($"Subcadena extraída: {subcadena}");
         }
+    }
 
-        // EJERCICIO 5: Buscar ocurrencia de una palabra en la cadena
+    static void BuscarPalabraEnCadena()
+    {
         Console.Write("Ingrese la palabra que desea buscar en el primer texto: ");
         string? palabraBuscar = Console.ReadLine();
 
         if (!string.IsNullOrEmpty(palabraBuscar))
         {
+            // Para buscar, necesito el texto original. Lo ideal es pasarlo como parámetro, pero aquí simplifico.
+            // Mejor pedir el texto acá también:
+            Console.Write("Ingrese la cadena donde buscar la palabra: ");
+            string? texto = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(texto))
+            {
+                Console.WriteLine("No ingresó ninguna cadena para buscar.");
+                return;
+            }
+
             string[] palabras = texto.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             int contador = 0;
 
@@ -116,16 +158,28 @@ class Program
         }
     }
 
-    // FUNCIÓN
-    static int InvertirNumero(int num)
+    static void DividirCadenaPorSeparador()
     {
-        int invertido = 0;
-        while (num > 0)
+        Console.WriteLine("Ingrese una cadena separada por un carácter: ");
+        string? cadenaSeparada = Console.ReadLine();
+
+        Console.Write("Ingrese el carácter separador (ej: ,): ");
+        string? separadorStr = Console.ReadLine();
+
+        if (!string.IsNullOrEmpty(cadenaSeparada) && !string.IsNullOrEmpty(separadorStr) && separadorStr.Length == 1)
         {
-            int digito = num % 10;
-            invertido = invertido * 10 + digito;
-            num /= 10;
+            char separador = separadorStr[0];
+            string[] partes = cadenaSeparada.Split(separador, StringSplitOptions.RemoveEmptyEntries);
+
+            Console.WriteLine("Partes separadas:");
+            foreach (string parte in partes)
+            {
+                Console.WriteLine(parte);
+            }
         }
-        return invertido;
+        else
+        {
+            Console.WriteLine("Entrada inválida para dividir la cadena.");
+        }
     }
 }
