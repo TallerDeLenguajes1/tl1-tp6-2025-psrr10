@@ -55,6 +55,12 @@ class Program
         int longitud = texto.Length;
         Console.WriteLine($"La longitud de la cadena es: {longitud}");
 
+        Console.WriteLine("Recorriendo la cadena caracter por caracter:");
+        foreach (char c in texto)
+        {
+            Console.WriteLine(c);
+        }
+
         Console.WriteLine("Ingrese otra cadena: ");
         string? texto2 = Console.ReadLine();
         if (string.IsNullOrEmpty(texto2))
@@ -81,6 +87,7 @@ class Program
             string subcadena = texto.Substring(inicio, cantidad);
             Console.WriteLine($"Subcadena extraída: {subcadena}");
         }
+
 
 
 
