@@ -119,7 +119,7 @@ class Program
                 resultado = Math.Truncate(num);
                 Console.WriteLine($"La parte entera de {num} es: {resultado}");
             }
-            else if (opcion == "11" || opcion == "12") // ✅ Máximo o Mínimo
+            else if (opcion == "11" || opcion == "12") // Máximo o Mínimo
             {
                 Console.Write("Ingrese el primer número: ");
                 bool valido1 = double.TryParse(Console.ReadLine(), out double num1);
@@ -160,12 +160,15 @@ class Program
                 {
                     case "1":
                         resultado = num1 + num2;
+                        Console.WriteLine($"La suma de {num1} y de {num2} es igual a: {resultado.ToString()}");
                         break;
                     case "2":
                         resultado = num1 - num2;
+                        Console.WriteLine($"La resta de {num1} y de {num2} es igual a: {resultado.ToString()}");
                         break;
                     case "3":
                         resultado = num1 * num2;
+                        Console.WriteLine($"La multiplicación de {num1} y de {num2} es igual a: {resultado.ToString()}");
                         break;
                     case "4":
                         if (num2 == 0)
@@ -176,17 +179,13 @@ class Program
                         else
                         {
                             resultado = num1 / num2;
+                            Console.WriteLine($"La división de {num1} y de {num2} es igual a: {resultado.ToString()}");
                         }
                         break;
                     default:
                         Console.WriteLine("⚠️ Opción no válida.");
                         operacionValida = false;
                         break;
-                }
-
-                if (operacionValida)
-                {
-                    Console.WriteLine($"Resultado: {resultado}");
                 }
             }
 
